@@ -2,11 +2,21 @@ import React from "react";
 import PokemonCard from "./PokemonCard";
 import { Card } from "semantic-ui-react";
 
-function PokemonCollection() {
+function PokemonCollection( {pokedex} ) {
+
+  const pokemonDisplay = pokedex.map((pokemon) => {
+    return(
+      <PokemonCard key={pokemon.id} pokemon={pokemon} /> 
+      )
+  })
+
+  console.log("POKEMON DISPLAY", pokemonDisplay)
+
   return (
-    <Card.Group itemsPerRow={6}>
-      <h1>Hello From Pokemon Collection</h1>
-    </Card.Group>
+    <>
+    <h1>Hello From Pokemon Collection</h1>
+    <Card.Group itemsPerRow={6}>{pokemonDisplay}</Card.Group>
+    </>
   );
 }
 
